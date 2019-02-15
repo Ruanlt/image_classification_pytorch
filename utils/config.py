@@ -86,6 +86,7 @@ def check_config_dict(config_dict):
         raise TypeError("save_name param input err...")
 
     if not os.path.exists(os.path.join(config_dict["pretrained_path"], config_dict["pretrained_file"])):
+    #    print(os.path.join(config_dict["pretrained_path"], config_dict["pretrained_file"]))
         raise ValueError("cannot find pretrained_path or pretrained_file...")
     if not os.path.exists(config_dict["save_path"]):
         raise ValueError("cannot find save_path...")

@@ -1,7 +1,7 @@
 {
-  "model_module_name": "inception_resnet_v2_module",
-  "model_net_name": "inception_resnet_v2",
-  "gpu_id": "0,1",
+  "model_module_name": "mobilenet_v2_module",
+  "model_net_name": "mobilenet_v2",
+  "gpu_id": "0",
   "async_loading": true,
   "is_tensorboard": true,
   "evaluate_before_train": true,
@@ -9,11 +9,11 @@
   "data_aug": true,
 
   "num_epochs": 30,
-  "img_height": 299,
-  "img_width": 299,
+  "img_height": 224,
+  "img_width": 224,
   "num_channels": 3,
-  "num_classes": 102,
-  "batch_size": 64,
+  "num_classes": 10,
+  "batch_size": 32,
   "dataloader_workers": 1,
   "learning_rate": 1e-4,
   "learning_rate_decay": 0.9,
@@ -21,15 +21,14 @@
 
   "train_mode": "finetune",
   "file_label_separator": "----",
-  "pretrained_path": "/hdd/pretrain_model/pytorch",
-  "pretrained_file": "inceptionresnetv2-520b38e4.pth",
-  "save_path": "/hdd/datasets/flower_102/save_model",
+  "pretrained_path": "/home/vismarty/hdd/pretrain_model/pytorch",
+  "pretrained_file": "mobilenetv2_Top1_71.806_Top2_90.410.pth",
+  "save_path": "/home/vismarty/ruanlt/saved_models/mobilenetv2",
   "save_name": "model.pth",
 
-  "train_data_root_dir": "/hdd/datasets/flower_102",
-  "val_data_root_dir": "/hdd/datasets/flower_102",
-  "train_data_file": "/hdd/datasets/flower_102/trainset.txt",
-  "val_data_file": "/hdd/datasets/flower_102/testset.txt"
-
+  "train_data_root_dir": "/home/vismarty/ruanlt/datas/gold_model_10classes",
+  "val_data_root_dir": "/home/vismarty/ruanlt/datas/gold_model_10classes",
+  "train_data_file": "/home/vismarty/ruanlt/datas/gold_model_10classes/train.txt",
+  "val_data_file": "/home/vismarty/ruanlt/datas/gold_model_10classes/vol.txt"
 
 }
