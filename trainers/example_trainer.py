@@ -21,7 +21,7 @@ class ExampleTrainer(BaseTrainer):
         self.learning_rate = self.adjust_learning_rate(self.optimizer, self.cur_epoch)
         self.train_losses = utils.AverageMeter()
         self.train_top1 = utils.AverageMeter()
-        self.train_top5 = utils.AverageMeter()
+        self.train_top2 = utils.AverageMeter()
         # Set the model to be in training mode (for dropout and batchnorm)
         self.model.net.train()
         for batch_idx, (batch_x, batch_y) in enumerate(self.train_loader):
@@ -61,10 +61,11 @@ class ExampleTrainer(BaseTrainer):
 
         loss = losses.item()#.data[0]
         # measure accuracy and record loss
-        prec1, prec5 = self.compute_accuracy(infer.data, labels.data, topk=(1, 5))
+        #prec1 = self.compute_accuracy(infer.data, labels.data, topk=(1,))
+        prec1, prec2 = self.compute_accuracy(infer.data, labels.data, topk=(1, 2))
         self.train_losses.update(loss, images.size(0))
         self.train_top1.update(prec1[0], images.size(0))
-        self.train_top5.update(prec5[0], images.size(0))
+        self.train_top2.update(prec2[0], images.size(0))
         # Optimization step
         if torch.cuda.device_count() > 1 and torch.cuda.is_available():
             self.optimizer.module.zero_grad()
@@ -162,7 +163,7 @@ class ExampleTrainer(BaseTrainer):
         """
         self.eval_losses = utils.AverageMeter()
         self.eval_top1 = utils.AverageMeter()
-        self.eval_top5 = utils.AverageMeter()
+        self.eval_top2 = utils.AverageMeter()
         # Set the model to be in testing mode (for dropout and batchnorm)
         self.model.net.eval()
         for batch_idx, (batch_x, batch_y) in enumerate(self.val_loader):
@@ -191,8 +192,9 @@ class ExampleTrainer(BaseTrainer):
             loss = losses.item()#losses.data[0]
 
         # measure accuracy and record loss
-        prec1, prec5 = self.compute_accuracy(infer.data, labels.data, topk=(1, 5))
+        prec1, prec2 = self.compute_accuracy(infer.data, labels.data, topk=(1, 2))
+        #prec1 = self.compute_accuracy(infer.data, labels.data, topk=(1,))
 
         self.eval_losses.update(loss, images.size(0)) # loss.data[0]
         self.eval_top1.update(prec1[0], images.size(0))
-        self.eval_top5.update(prec5[0], images.size(0))
+        #self.eval_top5.update(prec5[0], images.size(0))

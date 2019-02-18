@@ -55,10 +55,10 @@ class ExampleModel(BaseModel):
     def _load(self):
         _state_dict = torch.load(os.path.join(self.config['pretrained_path'], self.config['pretrained_file']),
                                 map_location=None)
-        for k, v in _state_dict.items():
-            print(k)
+        #for k, v in _state_dict.items():
+            #print(k)
        # print(_state_dict)
-#        sys.exit(0)
+#       # sys.exit(0)
         # for multi-gpus
         state_dict = OrderedDict()
         for item, value in _state_dict.items():

@@ -1,7 +1,7 @@
 {
   "model_module_name": "mobilenet_v2_module",
   "model_net_name": "mobilenet_v2",
-  "gpu_id": "0",
+  "gpu_id": "1",
   "async_loading": true,
   "is_tensorboard": true,
   "evaluate_before_train": true,
@@ -12,7 +12,7 @@
   "img_height": 224,
   "img_width": 224,
   "num_channels": 3,
-  "num_classes": 10,
+  "num_classes": 4,
   "batch_size": 32,
   "dataloader_workers": 1,
   "learning_rate": 1e-4,
@@ -26,9 +26,9 @@
   "save_path": "/home/vismarty/ruanlt/saved_models/mobilenetv2",
   "save_name": "model.pth",
 
-  "train_data_root_dir": "/home/vismarty/ruanlt/datas/gold_model_10classes",
-  "val_data_root_dir": "/home/vismarty/ruanlt/datas/gold_model_10classes",
-  "train_data_file": "/home/vismarty/ruanlt/datas/gold_model_10classes/train.txt",
-  "val_data_file": "/home/vismarty/ruanlt/datas/gold_model_10classes/vol.txt"
+  "train_data_root_dir": "/home/vismarty/ruanlt/datas/sert_fuse_4classes",
+  "val_data_root_dir": "/home/vismarty/ruanlt/datas/sert_fuse_4classes",
+  "train_data_file": "/home/vismarty/ruanlt/datas/sert_fuse_4classes/train_data.txt",
+  "val_data_file": "/home/vismarty/ruanlt/datas/sert_fuse_4classes/val_data.txt"
 
 }
