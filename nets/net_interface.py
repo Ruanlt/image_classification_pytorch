@@ -1,5 +1,5 @@
 # coding=utf-8
-import os
+import os, sys
 from importlib import import_module
 
 class NetModule(object):

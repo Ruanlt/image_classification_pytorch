@@ -1,34 +1,35 @@
 {
-  "model_module_name": "mobilenet_v2_module",
-  "model_net_name": "mobilenet_v2",
-  "gpu_id": "1",
+  "model_module_name": "efficientnet_module",
+  "model_net_name": "efficientnet",
+  "model_net_version": "efficientnet-b3",
+  "gpu_id": "0",
   "async_loading": true,
   "is_tensorboard": true,
   "evaluate_before_train": true,
   "shuffle": true,
   "data_aug": true,
 
-  "num_epochs": 30,
+  "num_epochs": 100,
   "img_height": 224,
   "img_width": 224,
   "num_channels": 3,
-  "num_classes": 4,
+  "num_classes": 6,
   "batch_size": 32,
   "dataloader_workers": 1,
   "learning_rate": 1e-4,
   "learning_rate_decay": 0.9,
-  "learning_rate_decay_epoch": 100,
+  "learning_rate_decay_epoch": 30,
 
   "train_mode": "finetune",
   "file_label_separator": "----",
   "pretrained_path": "/home/vismarty/hdd/pretrain_model/pytorch",
-  "pretrained_file": "mobilenetv2_Top1_71.806_Top2_90.410.pth",
-  "save_path": "/home/vismarty/ruanlt/saved_models/mobilenetv2",
-  "save_name": "model.pth",
+  "pretrained_file": "efficientnet-b3-c8376fa2.pth",
+  "save_path": "/home/vismarty/ruanlt/saved_models/efficientnet",
+  "save_name": "model_b3.pth",
 
-  "train_data_root_dir": "/home/vismarty/ruanlt/datas/sert_fuse_4classes",
-  "val_data_root_dir": "/home/vismarty/ruanlt/datas/sert_fuse_4classes",
-  "train_data_file": "/home/vismarty/ruanlt/datas/sert_fuse_4classes/train_data.txt",
-  "val_data_file": "/home/vismarty/ruanlt/datas/sert_fuse_4classes/val_data.txt"
+  "train_data_root_dir": "/home/vismarty/ruanlt/datas/hetao0701",
+  "val_data_root_dir": "/home/vismarty/ruanlt/datas/hetao0701",
+  "train_data_file": "/home/vismarty/ruanlt/datas/hetao0701/train.txt",
+  "val_data_file": "/home/vismarty/ruanlt/datas/hetao0701/val.txt"
 
 }

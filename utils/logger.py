@@ -53,7 +53,12 @@ class ExampleLogger:
         if variable_dict is not None:
             for tag, value in variable_dict.items():
                 self.log_info[tag] = value
-
+    def write_train_info_to_logger(self, variable_dict):
+        info_str = ''
+        for tag,value in variable_dict.items():
+            info = tag + ':' + str(value) + '\n'
+            info_str += info
+        self.log_writer.info(info_str)
 
     def write(self):
         """

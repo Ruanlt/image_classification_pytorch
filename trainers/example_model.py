@@ -18,7 +18,7 @@ class ExampleModel(BaseModel):
 
 
     def create_model(self):
-        self.net = self.interface.create_model(num_classes=self.config['num_classes'])
+        self.net = self.interface.create_model(num_classes=self.config['num_classes'], net_version=self.config['model_net_version'])
         if torch.cuda.is_available():
             self.net.cuda()
 

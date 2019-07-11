@@ -9,6 +9,7 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 import torchvision.transforms as transforms
 from importlib import import_module
+import time
 
 class TagPytorchInference(object):
 
@@ -68,11 +69,11 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('-image', "--image", type=str, help='Assign the image path.', default=None)
-    parser.add_argument('-module', "--module", type=str, help='Assign the module name.', default=None)
-    parser.add_argument('-net', "--net", type=str, help='Assign the net name.', default=None)
-    parser.add_argument('-model', "--model", type=str, help='Assign the net name.', default=None)
-    parser.add_argument('-cls', "--cls", type=int, help='Assign the classes number.', default=None)
-    parser.add_argument('-size', "--size", type=int, help='Assign the input size.', default=None)
+    parser.add_argument('-module', "--module", type=str, help='Assign the module name.', default='efficientnet_module')
+    parser.add_argument('-net', "--net", type=str, help='Assign the net name.', default='efficientnet')
+    parser.add_argument('-model', "--model", type=str, help='Assign the net name.', default='/home/vismarty/ruanlt/saved_models/efficientnet/model_b7.pth')
+    parser.add_argument('-cls', "--cls", type=int, help='Assign the classes number.', default=6)
+    parser.add_argument('-size', "--size", type=int, help='Assign the input size.', default=224)
     args = parser.parse_args()
     if args.image is None or args.module is None or args.net is None or args.model is None\
             or args.size is None or args.cls is None:
@@ -96,4 +97,12 @@ if __name__ == "__main__":
                                    input_size=input_size)
     result = tagInfer.run(image)
     print(result)
+    start = time.time()
+    for i in range(1000):
+        result = tagInfer.run(image)
+    end = time.time()
+    total_time = end -start
+    avg_time = total_time / 1000
+    print('total time:', total_time)
+    print('avg_time:', avg_time)
     print('done!')

@@ -31,6 +31,8 @@ class ImageClassificationPytorch:
         self.train_loader, self.test_loader = get_data_loader(self.config)
         # create logger
         self.logger = ExampleLogger(self.config)
+        self.logger.write_train_info_to_logger(variable_dict=self.config)
+        # self.logger.write()
         # create trainer and path all previous components to it
         self.trainer = ExampleTrainer(self.model, self.train_loader, self.test_loader, self.config, self.logger)
 

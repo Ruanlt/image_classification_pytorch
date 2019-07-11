@@ -47,7 +47,8 @@ class DataProcessor:
         :param image: 
         :return: 
         """
-        return ((image - 127) * 0.0078125).astype(np.float32) # 1/128
+        return (image / 255.).astype(np.float32)
+        #return ((image - 127) * 0.0078125).astype(np.float32) # 1/128
 
 
     def data_aug(self, image, **kwargs):

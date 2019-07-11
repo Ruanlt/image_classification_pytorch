@@ -50,6 +50,8 @@ class ExampleTrainer(BaseTrainer):
         """
         # Forward pass
         infer = self.model.net(images)
+        # print('infer shape:', infer.shape)
+        # sys.exit(0)
 
         # label to one_hot
         # ids = labels.long().view(-1,1)
